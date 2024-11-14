@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>StudyBuddy-thptdkr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+
+    <div id="intro-container">
+        <h2>Hí lô mọi người</h2>
+        <img width="100%" src="WebRTC SDP Gif.gif" alt="StudyBuddy-thptdkr xapu"/>
+        <p><b>bản thử:</b> hai máy kết nối được với nhau, làm theo những cách sau:</p>
+        <ul>
+            <li><b>User 1</b> (Tab 1)</li>
+            <li><b>User 2</b> (Tab 2)</li>
+        </ul>
+        <a href="https://github.com/divanov11/WebRTC-Simple-SDP-Handshake-Demo/" target="_blank"><b>Source Code</b></a>
+    </div>
+
+    <div id="videos">
+        <video class="video-player" id="user-1" autoplay playsinline></video>
+        <video class="video-player" id="user-2" autoplay playsinline></video>
+    </div>
+
+    <div class="step">
+        <p><strong>Step 1:</strong>  bấm vào "Create Offer" để tạo ID, rồi sao chép dán qua người dùng 2 nhé.</p>
+        <button id="create-offer">Create Offer</button>
+        <label>SDP OFFER:</label>
+        <textarea id="offer-sdp" placeholder="Generated SDP offer appears here..."></textarea>
+        <button onclick="copyText('offer-sdp')">Copy Offer</button>
+    </div>
+
+    <div class="step">
+        <p><strong>Step 2:</strong> người dùng 2 dán ID của người dùng 1 vào ở trên, rồi click"Create Answer" rồi chia sẻ cho người dùng 1 nha.</p>
+        <button id="create-answer">Create Answer</button>
+        <label>SDP ANSWER:</label>
+        <textarea id="answer-sdp" placeholder="Generated SDP answer appears here..."></textarea>
+        <button onclick="copyText('answer-sdp')">Copy Answer</button>
+    </div>
+
+    <div class="step">
+        <p><strong>Step 3:</strong> người dùng 1 dán câu ID của người dùng 2 vào vùng ở trên rồi bấm "Add Answer", thế là xong. p>
+        <button id="add-answer">Add Answer</button>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        // Copy text from textarea
+        function copyText(elementId) {
+            const textarea = document.getElementById(elementId);
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand("copy");
+            alert("Text copied to clipboard");
+        }
+    </script>
+</body>
+</html>
